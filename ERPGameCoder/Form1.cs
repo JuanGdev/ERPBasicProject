@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace ERPGameCoder
@@ -19,47 +11,66 @@ namespace ERPGameCoder
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
             // Obtener los valores ingresados por el usuario
-            string usuarioId = tb_usuarioId.Text;
-            string Email = tb_password.Text;
+            string email = tb_usuarioId.Text; // Correo electrónico
+            string password = tb_password.Text; // Contraseña
 
             // Validar que los campos no estén vacíos
-            if (string.IsNullOrWhiteSpace(usuarioId) || string.IsNullOrWhiteSpace(Email))
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Por favor, ingresa el usuario y la contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, ingresa el correo electrónico y la contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Cadena de conexión desde App.config
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"]?.ConnectionString;
-            // Consulta SQL para validar el usuario
-            string query = "SELECT COUNT(*) FROM Users WHERE Id = @Name";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            // Consulta SQL para validar el usuario y la contraseña
+            string query = @"
+                SELECT UserType 
+                FROM Users 
+                WHERE Email = @Email AND UserId  = @UserId";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Name", usuarioId);
-                   // command.Parameters.AddWithValue("@Email", Email);
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@UserId", password);
 
                     connection.Open();
-                    int userCount = (int)command.ExecuteScalar();
+                    object result = command.ExecuteScalar();
 
-                    if (userCount > 0)
+                    if (result != null)
                     {
+                        string userType = result.ToString();
+
                         MessageBox.Show("¡Inicio de sesión exitoso!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Abrir FormEmployees
+                        FormEmployees formEmployees = new FormEmployees();
+
+                        // Configurar acceso según el tipo de usuario
+                        if (userType == "Admin")
+                        {
+                          //  formEmployees.EnableAdminFeatures(); // Método para habilitar funciones de administrador
+                        }
+                        else if (userType == "User")
+                        {
+                         //   formEmployees.DisableAdminFeatures(); // Método para deshabilitar funciones de administrador
+                        }
+
+                        formEmployees.Show();
+
+                        // Ocultar el formulario actual
+                        this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Correo o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
