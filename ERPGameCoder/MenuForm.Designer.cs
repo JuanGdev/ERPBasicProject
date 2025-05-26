@@ -63,6 +63,7 @@
             this.btnProjects.TabIndex = 2;
             this.btnProjects.Text = "Projects";
             this.btnProjects.UseVisualStyleBackColor = true;
+            this.btnProjects.Click += new System.EventHandler(this.btnProjects_Click);
             // 
             // btnTasks
             // 
@@ -72,6 +73,7 @@
             this.btnTasks.TabIndex = 3;
             this.btnTasks.Text = "Task";
             this.btnTasks.UseVisualStyleBackColor = true;
+            this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
             // 
             // btnUsers
             // 

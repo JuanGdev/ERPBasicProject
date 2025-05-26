@@ -36,6 +36,8 @@ namespace ERPGameCoder
         private void btnTasks_Click(object sender, EventArgs e)
         {
             // Abrir formulario de tareas
+            Tasks tasksForm = new Tasks();
+            tasksForm.Show();
         }
 
         private void btnDepartments_Click(object sender, EventArgs e)
@@ -47,6 +49,12 @@ namespace ERPGameCoder
         private void btnAdminRoles_Click(object sender, EventArgs e)
         {
             // Abrir formulario de administración de roles
+        }
+
+        private void btnProjects_Click(object sender, EventArgs e)
+        {
+            Projects projectsForm = new Projects();
+            projectsForm.Show();
         }
     }
 }
