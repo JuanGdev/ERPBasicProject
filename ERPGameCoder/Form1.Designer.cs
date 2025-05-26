@@ -44,7 +44,7 @@
             this.tb_password.Name = "tb_password";
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(208, 38);
-            this.tb_password.TabIndex = 0;
+            this.tb_password.TabIndex = 1;
             // 
             // label1
             // 
@@ -74,7 +74,7 @@
             this.tb_usuarioId.Location = new System.Drawing.Point(350, 173);
             this.tb_usuarioId.Name = "tb_usuarioId";
             this.tb_usuarioId.Size = new System.Drawing.Size(208, 38);
-            this.tb_usuarioId.TabIndex = 2;
+            this.tb_usuarioId.TabIndex = 0;
             // 
             // btn_ingresar
             // 
@@ -82,7 +82,7 @@
             this.btn_ingresar.Location = new System.Drawing.Point(314, 342);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.Size = new System.Drawing.Size(98, 37);
-            this.btn_ingresar.TabIndex = 4;
+            this.btn_ingresar.TabIndex = 2;
             this.btn_ingresar.Text = "Ingresar";
             this.btn_ingresar.UseVisualStyleBackColor = true;
             this.btn_ingresar.Click += new System.EventHandler(this.btn_ingresar_Click);
