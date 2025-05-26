@@ -16,6 +16,7 @@ namespace ERPGameCoder
             InitializeComponent();
             LoadUsers();
             LoadRoles(); // Cargar roles al iniciar el formulario
+            LoadProjectsTasksAndEmployees();
             btnAddUser.Click += BtnAddUser_Click;
             btnEditUser.Click += BtnEditUser_Click;
             btnDeleteUser.Click += BtnDeleteUser_Click;
@@ -30,6 +31,30 @@ namespace ERPGameCoder
                 DataTable usersTable = new DataTable();
                 adapter.Fill(usersTable);
                 dgvUsers.DataSource = usersTable;
+            }
+        }
+
+        private void LoadProjectsTasksAndEmployees()
+        {
+            string query = @"
+                SELECT 
+                    p.Name AS ProjectName, 
+                    t.Name AS TaskName, 
+                    e.Name AS EmployeeName, 
+                    e.Email AS EmployeeEmail
+                FROM 
+                    Projects p
+                INNER JOIN 
+                    Tasks t ON p.ProjectId = t.ProjectId
+                INNER JOIN 
+                    Employees e ON t.EmployeeId = e.EmployeeId";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dvgProjectsTaskAndEmployees.DataSource = table;
             }
         }
 
