@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administration));
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             // dgvUsers
             // 
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.Black;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(12, 12);
             this.dgvUsers.Name = "dgvUsers";
@@ -57,37 +59,44 @@
             // 
             // btnAddUser
             // 
+            this.btnAddUser.BackColor = System.Drawing.Color.Black;
+            this.btnAddUser.ForeColor = System.Drawing.Color.White;
             this.btnAddUser.Location = new System.Drawing.Point(13, 428);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(75, 23);
             this.btnAddUser.TabIndex = 1;
             this.btnAddUser.Text = "Add User";
-            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.UseVisualStyleBackColor = false;
             this.btnAddUser.Click += new System.EventHandler(this.BtnAddUser_Click);
             // 
             // btnEditUser
             // 
+            this.btnEditUser.BackColor = System.Drawing.Color.Black;
+            this.btnEditUser.ForeColor = System.Drawing.Color.White;
             this.btnEditUser.Location = new System.Drawing.Point(101, 428);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(75, 23);
             this.btnEditUser.TabIndex = 2;
             this.btnEditUser.Text = "Edit User";
-            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.UseVisualStyleBackColor = false;
             this.btnEditUser.Click += new System.EventHandler(this.BtnEditUser_Click);
             // 
             // btnDeleteUser
             // 
+            this.btnDeleteUser.BackColor = System.Drawing.Color.Black;
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
             this.btnDeleteUser.Location = new System.Drawing.Point(191, 428);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteUser.TabIndex = 3;
             this.btnDeleteUser.Text = "Delete User";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.BtnDeleteUser_Click);
             // 
             // lblFullname
             // 
             this.lblFullname.AutoSize = true;
+            this.lblFullname.ForeColor = System.Drawing.Color.White;
             this.lblFullname.Location = new System.Drawing.Point(12, 370);
             this.lblFullname.Name = "lblFullname";
             this.lblFullname.Size = new System.Drawing.Size(57, 13);
@@ -104,6 +113,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
             this.lblEmail.Location = new System.Drawing.Point(300, 370);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
@@ -120,6 +130,7 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
+            this.lblRole.ForeColor = System.Drawing.Color.White;
             this.lblRole.Location = new System.Drawing.Point(560, 370);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(32, 13);
@@ -136,6 +147,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
+            this.lblPassword.ForeColor = System.Drawing.Color.White;
             this.lblPassword.Location = new System.Drawing.Point(12, 400);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
@@ -153,6 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(927, 492);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.btnAddUser);
@@ -166,6 +179,7 @@
             this.Controls.Add(this.cmbRole);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtPassword);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Administration";
             this.Text = "Administration";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();

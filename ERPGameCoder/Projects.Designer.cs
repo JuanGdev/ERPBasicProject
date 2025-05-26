@@ -24,6 +24,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Projects));
             this.dataGridViewProjects = new System.Windows.Forms.DataGridView();
             this.txtProjectName = new System.Windows.Forms.TextBox();
             this.txtBudget = new System.Windows.Forms.TextBox();
@@ -52,6 +53,7 @@
             // dataGridViewProjects
             // 
             this.dataGridViewProjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(2)))));
             this.dataGridViewProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProjects.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewProjects.Name = "dataGridViewProjects";
@@ -129,6 +131,7 @@
             // lblProjectName
             // 
             this.lblProjectName.AutoSize = true;
+            this.lblProjectName.ForeColor = System.Drawing.Color.White;
             this.lblProjectName.Location = new System.Drawing.Point(12, 224);
             this.lblProjectName.Name = "lblProjectName";
             this.lblProjectName.Size = new System.Drawing.Size(74, 13);
@@ -138,6 +141,7 @@
             // lblBudget
             // 
             this.lblBudget.AutoSize = true;
+            this.lblBudget.ForeColor = System.Drawing.Color.White;
             this.lblBudget.Location = new System.Drawing.Point(12, 264);
             this.lblBudget.Name = "lblBudget";
             this.lblBudget.Size = new System.Drawing.Size(44, 13);
@@ -147,6 +151,7 @@
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
+            this.lblGenre.ForeColor = System.Drawing.Color.White;
             this.lblGenre.Location = new System.Drawing.Point(240, 224);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(39, 13);
@@ -156,6 +161,7 @@
             // lblPlatform
             // 
             this.lblPlatform.AutoSize = true;
+            this.lblPlatform.ForeColor = System.Drawing.Color.White;
             this.lblPlatform.Location = new System.Drawing.Point(240, 264);
             this.lblPlatform.Name = "lblPlatform";
             this.lblPlatform.Size = new System.Drawing.Size(48, 13);
@@ -165,6 +171,7 @@
             // lblGameEngine
             // 
             this.lblGameEngine.AutoSize = true;
+            this.lblGameEngine.ForeColor = System.Drawing.Color.White;
             this.lblGameEngine.Location = new System.Drawing.Point(480, 224);
             this.lblGameEngine.Name = "lblGameEngine";
             this.lblGameEngine.Size = new System.Drawing.Size(74, 13);
@@ -174,6 +181,7 @@
             // lblLeadDesigner
             // 
             this.lblLeadDesigner.AutoSize = true;
+            this.lblLeadDesigner.ForeColor = System.Drawing.Color.White;
             this.lblLeadDesigner.Location = new System.Drawing.Point(480, 264);
             this.lblLeadDesigner.Name = "lblLeadDesigner";
             this.lblLeadDesigner.Size = new System.Drawing.Size(79, 13);
@@ -183,6 +191,7 @@
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
+            this.lblStartDate.ForeColor = System.Drawing.Color.White;
             this.lblStartDate.Location = new System.Drawing.Point(12, 304);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(58, 13);
@@ -191,6 +200,7 @@
             // 
             // lblEndDate
             // 
+            this.lblEndDate.ForeColor = System.Drawing.Color.White;
             this.lblEndDate.Location = new System.Drawing.Point(240, 304);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(58, 13);
@@ -200,6 +210,7 @@
             // lblReleaseDate
             // 
             this.lblReleaseDate.AutoSize = true;
+            this.lblReleaseDate.ForeColor = System.Drawing.Color.White;
             this.lblReleaseDate.Location = new System.Drawing.Point(480, 304);
             this.lblReleaseDate.Name = "lblReleaseDate";
             this.lblReleaseDate.Size = new System.Drawing.Size(75, 13);
@@ -208,6 +219,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(723, 237);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -217,6 +229,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(723, 277);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
@@ -226,6 +239,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(723, 317);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
@@ -237,6 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(2)))));
             this.ClientSize = new System.Drawing.Size(833, 364);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -260,8 +275,9 @@
             this.Controls.Add(this.txtBudget);
             this.Controls.Add(this.txtProjectName);
             this.Controls.Add(this.dataGridViewProjects);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Projects";
-            this.Text = "Projects Management";
+            this.Text = "Projects Management Module";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tasks));
             this.dataGridViewTasks = new System.Windows.Forms.DataGridView();
             this.txtTaskName = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -54,8 +55,6 @@
             this.lblEstimatedHours = new System.Windows.Forms.Label();
             this.lblActualHours = new System.Windows.Forms.Label();
             this.lblDependencies = new System.Windows.Forms.Label();
-
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEstimatedHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numActualHours)).BeginInit();
@@ -64,6 +63,7 @@
             // dataGridViewTasks
             // 
             this.dataGridViewTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTasks.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTasks.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewTasks.Name = "dataGridViewTasks";
@@ -191,42 +191,44 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Black;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(12, 440);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.Black;
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(100, 440);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Black;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(190, 440);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-
-            //
-            // labels
-            //
-
             // 
             // lblTaskName
             // 
             this.lblTaskName.AutoSize = true;
+            this.lblTaskName.ForeColor = System.Drawing.Color.White;
             this.lblTaskName.Location = new System.Drawing.Point(12, 220);
             this.lblTaskName.Name = "lblTaskName";
             this.lblTaskName.Size = new System.Drawing.Size(65, 13);
@@ -236,6 +238,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
+            this.lblDescription.ForeColor = System.Drawing.Color.White;
             this.lblDescription.Location = new System.Drawing.Point(240, 220);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(63, 13);
@@ -245,15 +248,17 @@
             // lblEmployee
             // 
             this.lblEmployee.AutoSize = true;
+            this.lblEmployee.ForeColor = System.Drawing.Color.White;
             this.lblEmployee.Location = new System.Drawing.Point(480, 220);
             this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(57, 13);
+            this.lblEmployee.Size = new System.Drawing.Size(56, 13);
             this.lblEmployee.TabIndex = 17;
             this.lblEmployee.Text = "Employee:";
             // 
             // lblProject
             // 
             this.lblProject.AutoSize = true;
+            this.lblProject.ForeColor = System.Drawing.Color.White;
             this.lblProject.Location = new System.Drawing.Point(700, 220);
             this.lblProject.Name = "lblProject";
             this.lblProject.Size = new System.Drawing.Size(43, 13);
@@ -263,6 +268,7 @@
             // lblDueDate
             // 
             this.lblDueDate.AutoSize = true;
+            this.lblDueDate.ForeColor = System.Drawing.Color.White;
             this.lblDueDate.Location = new System.Drawing.Point(12, 260);
             this.lblDueDate.Name = "lblDueDate";
             this.lblDueDate.Size = new System.Drawing.Size(56, 13);
@@ -272,6 +278,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
             this.lblStatus.Location = new System.Drawing.Point(240, 300);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(40, 13);
@@ -281,6 +288,7 @@
             // lblTaskType
             // 
             this.lblTaskType.AutoSize = true;
+            this.lblTaskType.ForeColor = System.Drawing.Color.White;
             this.lblTaskType.Location = new System.Drawing.Point(480, 300);
             this.lblTaskType.Name = "lblTaskType";
             this.lblTaskType.Size = new System.Drawing.Size(61, 13);
@@ -290,6 +298,7 @@
             // lblPriority
             // 
             this.lblPriority.AutoSize = true;
+            this.lblPriority.ForeColor = System.Drawing.Color.White;
             this.lblPriority.Location = new System.Drawing.Point(700, 300);
             this.lblPriority.Name = "lblPriority";
             this.lblPriority.Size = new System.Drawing.Size(41, 13);
@@ -299,37 +308,38 @@
             // lblEstimatedHours
             // 
             this.lblEstimatedHours.AutoSize = true;
+            this.lblEstimatedHours.ForeColor = System.Drawing.Color.White;
             this.lblEstimatedHours.Location = new System.Drawing.Point(12, 340);
             this.lblEstimatedHours.Name = "lblEstimatedHours";
-            this.lblEstimatedHours.Size = new System.Drawing.Size(89, 13);
+            this.lblEstimatedHours.Size = new System.Drawing.Size(87, 13);
             this.lblEstimatedHours.TabIndex = 23;
             this.lblEstimatedHours.Text = "Estimated Hours:";
             // 
             // lblActualHours
             // 
             this.lblActualHours.AutoSize = true;
+            this.lblActualHours.ForeColor = System.Drawing.Color.White;
             this.lblActualHours.Location = new System.Drawing.Point(240, 340);
             this.lblActualHours.Name = "lblActualHours";
-            this.lblActualHours.Size = new System.Drawing.Size(73, 13);
+            this.lblActualHours.Size = new System.Drawing.Size(71, 13);
             this.lblActualHours.TabIndex = 24;
             this.lblActualHours.Text = "Actual Hours:";
             // 
             // lblDependencies
             // 
             this.lblDependencies.AutoSize = true;
+            this.lblDependencies.ForeColor = System.Drawing.Color.White;
             this.lblDependencies.Location = new System.Drawing.Point(480, 340);
             this.lblDependencies.Name = "lblDependencies";
             this.lblDependencies.Size = new System.Drawing.Size(79, 13);
             this.lblDependencies.TabIndex = 25;
             this.lblDependencies.Text = "Dependencies:";
             // 
-
-
-            // 
             // Tasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1024, 480);
             this.Controls.Add(this.dataGridViewTasks);
             this.Controls.Add(this.txtTaskName);
@@ -346,7 +356,6 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
-            // Add labels to the form
             this.Controls.Add(this.lblTaskName);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblEmployee);
@@ -358,9 +367,9 @@
             this.Controls.Add(this.lblEstimatedHours);
             this.Controls.Add(this.lblActualHours);
             this.Controls.Add(this.lblDependencies);
-
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tasks";
-            this.Text = "Tasks";
+            this.Text = "Production Module";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEstimatedHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numActualHours)).EndInit();
