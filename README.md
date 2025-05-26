@@ -8,68 +8,61 @@ Sistema de gestión empresarial (ERP) diseñado específicamente para una empres
 ```mermaid
 erDiagram
     Departments {
-        int DepartmentId PK "IDENTITY(1,1)"
-        nvarchar(100) Name "NOT NULL, UNIQUE"
+        int DepartmentId PK
+        string Name UNIQUE
     }
 
     Employees {
-        int EmployeeId PK "IDENTITY(1,1)"
-        nvarchar(100) Name "NOT NULL"
-        nvarchar(100) Email "NOT NULL, UNIQUE"
-        int DepartmentId FK "NOT NULL"
-        date HireDate "NOT NULL"
-        decimal(10,2) Salary "NOT NULL"
+        int EmployeeId PK
+        string Name
+        string Email UNIQUE
+        int DepartmentId FK
+        date HireDate
+        decimal Salary
     }
 
     Projects {
-        int ProjectId PK "IDENTITY(1,1)"
-        nvarchar(100) Name "NOT NULL"
-        date StartDate "NOT NULL"
-        date EndDate "NULL"
-        decimal(15,2) Budget "NOT NULL"
-        nvarchar(50) Genre "NOT NULL"
-        nvarchar(100) Platform "NOT NULL"
-        int LeadDesignerId FK "NULL"
-        nvarchar(50) GameEngine "NOT NULL"
-        date ReleaseDate "NULL"
+        int ProjectId PK
+        string Name
+        date StartDate
+        date EndDate
+        decimal Budget
+        string Genre
+        string Platform
+        int LeadDesignerId FK
+        string GameEngine
+        date ReleaseDate
     }
 
     Tasks {
-        int TaskId PK "IDENTITY(1,1)"
-        nvarchar(100) Name "NOT NULL"
-        nvarchar(max) Description "NULL"
-        int EmployeeId FK "NOT NULL"
-        int ProjectId FK "NOT NULL"
-        date DueDate "NOT NULL"
-        nvarchar(50) Status "NOT NULL"
-        nvarchar(50) TaskType "NOT NULL"
-        nvarchar(20) Priority "NOT NULL"
-        decimal(5,2) EstimatedHours "NULL"
-        decimal(5,2) ActualHours "NULL"
-        nvarchar(max) Dependencies "NULL"
+        int TaskId PK
+        string Name
+        string Description
+        int EmployeeId FK
+        int ProjectId FK
+        date DueDate
+        string Status
+        string TaskType
+        string Priority
+        decimal EstimatedHours
+        decimal ActualHours
+        string Dependencies
     }
 
     Users {
-        int UserId PK "IDENTITY(1,1)"
-        nvarchar(100) FullName "NOT NULL"
-        nvarchar(100) Email "NOT NULL, UNIQUE"
-        nvarchar(255) UserPassword "NOT NULL"
-        nvarchar(10) UserType "NOT NULL, CHECK: Admin/User"
+        int UserId PK
+        string FullName
+        string Email UNIQUE
+        string UserPassword
+        string UserType
     }
 
-    %% Relaciones
     Departments ||--o{ Employees : has
     Employees ||--o{ Projects : leads
     Employees ||--o{ Tasks : assigned_to
     Projects ||--o{ Tasks : contains
 ```
-<!--
-NOTAS DE ARREGLO:
-- El bloque mermaid debe abrir y cerrar con tres backticks y la palabra "mermaid".
-- No debe haber comillas dentro de los roles de relación (ejemplo: : "has" → : has).
-- Mermaid ignora comentarios iniciados con %%
-- No se deben dejar bloques de código abiertos ni líneas incompletas.
--->
+
 
 ## Estructura de Tablas
 
