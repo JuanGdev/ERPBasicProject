@@ -11,7 +11,7 @@ erDiagram
         int DepartmentId PK "IDENTITY(1,1)"
         nvarchar(100) Name "NOT NULL, UNIQUE"
     }
-    
+
     Employees {
         int EmployeeId PK "IDENTITY(1,1)"
         nvarchar(100) Name "NOT NULL"
@@ -20,7 +20,7 @@ erDiagram
         date HireDate "NOT NULL"
         decimal(10,2) Salary "NOT NULL"
     }
-    
+
     Projects {
         int ProjectId PK "IDENTITY(1,1)"
         nvarchar(100) Name "NOT NULL"
@@ -33,7 +33,7 @@ erDiagram
         nvarchar(50) GameEngine "NOT NULL"
         date ReleaseDate "NULL"
     }
-    
+
     Tasks {
         int TaskId PK "IDENTITY(1,1)"
         nvarchar(100) Name "NOT NULL"
@@ -48,7 +48,7 @@ erDiagram
         decimal(5,2) ActualHours "NULL"
         nvarchar(max) Dependencies "NULL"
     }
-    
+
     Users {
         int UserId PK "IDENTITY(1,1)"
         nvarchar(100) FullName "NOT NULL"
@@ -56,13 +56,20 @@ erDiagram
         nvarchar(255) UserPassword "NOT NULL"
         nvarchar(10) UserType "NOT NULL, CHECK: Admin/User"
     }
-    
+
     %% Relaciones
-    Departments ||--o{ Employees : "has"
-    Employees ||--o{ Projects : "leads"
-    Employees ||--o{ Tasks : "assigned_to"
-    Projects ||--o{ Tasks : "contains"
+    Departments ||--o{ Employees : has
+    Employees ||--o{ Projects : leads
+    Employees ||--o{ Tasks : assigned_to
+    Projects ||--o{ Tasks : contains
 ```
+<!--
+NOTAS DE ARREGLO:
+- El bloque mermaid debe abrir y cerrar con tres backticks y la palabra "mermaid".
+- No debe haber comillas dentro de los roles de relación (ejemplo: : "has" → : has).
+- Mermaid ignora comentarios iniciados con %%
+- No se deben dejar bloques de código abiertos ni líneas incompletas.
+-->
 
 ## Estructura de Tablas
 
