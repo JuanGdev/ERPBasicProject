@@ -342,6 +342,7 @@
             // 
             // chartProd
             // 
+            this.chartProd.BackColor = System.Drawing.Color.Black;
             chartArea1.Name = "ChartArea1";
             this.chartProd.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";

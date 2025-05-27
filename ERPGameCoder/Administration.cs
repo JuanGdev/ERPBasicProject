@@ -58,10 +58,12 @@ namespace ERPGameCoder
                 chart1.Series.Clear();
                 chart1.Titles.Clear();
                 chart1.Titles.Add("Employees per Department");
+                chart1.Titles[0].ForeColor = System.Drawing.Color.White; // Título en blanco
 
                 var series = chart1.Series.Add("Employees");
                 series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                series.Color = System.Drawing.Color.Red;
+                series.Color = System.Drawing.Color.Red; // Barras en rojo
+
                 foreach (DataRow row in dataTable.Rows)
                 {
                     string departmentName = row["DepartmentName"].ToString();
@@ -69,10 +71,15 @@ namespace ERPGameCoder
                     series.Points.AddXY(departmentName, employeeCount);
                 }
 
-                chart1.ChartAreas[0].AxisX.Title = "Departments";
-                chart1.ChartAreas[0].AxisY.Title = "Number of Employees";
+                // Fondo negro y letras blancas
+                chart1.ChartAreas[0].BackColor = System.Drawing.Color.Black; // Fondo negro
+                chart1.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.White; // Etiquetas eje X en blanco
+                chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = System.Drawing.Color.White; // Etiquetas eje Y en blanco
+                chart1.ChartAreas[0].AxisX.TitleForeColor = System.Drawing.Color.White; // Título eje X en blanco
+                chart1.ChartAreas[0].AxisY.TitleForeColor = System.Drawing.Color.White; // Título eje Y en blanco
             }
         }
+
 
 
         private void LoadProjectsTasksAndEmployees()

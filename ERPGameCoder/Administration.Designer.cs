@@ -262,6 +262,7 @@
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Transparent;

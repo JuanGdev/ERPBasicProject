@@ -54,10 +54,11 @@ namespace ERPGameCoder
                 chartProd.Series.Clear();
                 chartProd.Titles.Clear();
                 chartProd.Titles.Add("Tasks per Project");
+                chartProd.Titles[0].ForeColor = System.Drawing.Color.White; // Título en blanco
 
                 var series = chartProd.Series.Add("Tasks");
                 series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                series.Color = System.Drawing.Color.Red; // Cambiar color de las barras a rojo
+                series.Color = System.Drawing.Color.Red; // Barras en rojo
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -66,8 +67,12 @@ namespace ERPGameCoder
                     series.Points.AddXY(projectName, taskCount);
                 }
 
-                chartProd.ChartAreas[0].AxisX.Title = "Projects";
-                chartProd.ChartAreas[0].AxisY.Title = "Number of Tasks";
+                // Fondo negro y letras blancas
+                chartProd.ChartAreas[0].BackColor = System.Drawing.Color.Black; // Fondo negro
+                chartProd.ChartAreas[0].AxisX.LabelStyle.ForeColor = System.Drawing.Color.White; // Etiquetas eje X
+                chartProd.ChartAreas[0].AxisY.LabelStyle.ForeColor = System.Drawing.Color.White; // Etiquetas eje Y
+                chartProd.ChartAreas[0].AxisX.TitleForeColor = System.Drawing.Color.White; // Título eje X
+                chartProd.ChartAreas[0].AxisY.TitleForeColor = System.Drawing.Color.White; // Título eje Y
             }
         }
 
