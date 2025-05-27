@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tasks));
             this.dataGridViewTasks = new System.Windows.Forms.DataGridView();
             this.txtTaskName = new System.Windows.Forms.TextBox();
@@ -55,9 +58,11 @@
             this.lblEstimatedHours = new System.Windows.Forms.Label();
             this.lblActualHours = new System.Windows.Forms.Label();
             this.lblDependencies = new System.Windows.Forms.Label();
+            this.chartProd = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEstimatedHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numActualHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProd)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewTasks
@@ -335,12 +340,29 @@
             this.lblDependencies.TabIndex = 25;
             this.lblDependencies.Text = "Dependencies:";
             // 
+            // chartProd
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartProd.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartProd.Legends.Add(legend1);
+            this.chartProd.Location = new System.Drawing.Point(1073, 120);
+            this.chartProd.Name = "chartProd";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartProd.Series.Add(series1);
+            this.chartProd.Size = new System.Drawing.Size(300, 300);
+            this.chartProd.TabIndex = 26;
+            this.chartProd.Text = "chart1";
+            // 
             // Tasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1024, 480);
+            this.ClientSize = new System.Drawing.Size(1423, 480);
+            this.Controls.Add(this.chartProd);
             this.Controls.Add(this.dataGridViewTasks);
             this.Controls.Add(this.txtTaskName);
             this.Controls.Add(this.txtDescription);
@@ -373,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEstimatedHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numActualHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,6 +428,6 @@
         private System.Windows.Forms.Label lblEstimatedHours;
         private System.Windows.Forms.Label lblActualHours;
         private System.Windows.Forms.Label lblDependencies;
-
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartProd;
     }
 }

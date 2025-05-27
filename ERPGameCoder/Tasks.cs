@@ -16,6 +16,7 @@ namespace ERPGameCoder
             LoadTasks();
             LoadEmployees();
             LoadProjects();
+            LoadTaskChart();
         }
 
         private void LoadTasks()
@@ -29,6 +30,47 @@ namespace ERPGameCoder
                 dataGridViewTasks.DataSource = table;
             }
         }
+
+        private void LoadTaskChart()
+        {
+            string query = @"
+        SELECT 
+            p.Name AS ProjectName, 
+            COUNT(t.TaskId) AS TaskCount
+        FROM 
+            Projects p
+        LEFT JOIN 
+            Tasks t ON p.ProjectId = t.ProjectId
+        GROUP BY 
+            p.Name;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Configurar el gráfico
+                chartProd.Series.Clear();
+                chartProd.Titles.Clear();
+                chartProd.Titles.Add("Tasks per Project");
+
+                var series = chartProd.Series.Add("Tasks");
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                series.Color = System.Drawing.Color.Red; // Cambiar color de las barras a rojo
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    string projectName = row["ProjectName"].ToString();
+                    int taskCount = Convert.ToInt32(row["TaskCount"]);
+                    series.Points.AddXY(projectName, taskCount);
+                }
+
+                chartProd.ChartAreas[0].AxisX.Title = "Projects";
+                chartProd.ChartAreas[0].AxisY.Title = "Number of Tasks";
+            }
+        }
+
 
         private void LoadEmployees()
         {

@@ -17,6 +17,7 @@ namespace ERPGameCoder
             LoadUsers();
             LoadRoles(); // Cargar roles al iniciar el formulario
             LoadProjectsTasksAndEmployees();
+            LoadEmployeeChart();
             btnAddUser.Click += BtnAddUser_Click;
             btnEditUser.Click += BtnEditUser_Click;
             btnDeleteUser.Click += BtnDeleteUser_Click;
@@ -33,6 +34,46 @@ namespace ERPGameCoder
                 dgvUsers.DataSource = usersTable;
             }
         }
+
+        private void LoadEmployeeChart()
+        {
+            string query = @"
+        SELECT 
+            d.Name AS DepartmentName, 
+            COUNT(e.EmployeeId) AS EmployeeCount
+        FROM 
+            Departments d
+        LEFT JOIN 
+            Employees e ON d.DepartmentId = e.DepartmentId
+        GROUP BY 
+            d.Name;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Configurar el gráfico
+                chart1.Series.Clear();
+                chart1.Titles.Clear();
+                chart1.Titles.Add("Employees per Department");
+
+                var series = chart1.Series.Add("Employees");
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                series.Color = System.Drawing.Color.Red;
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    string departmentName = row["DepartmentName"].ToString();
+                    int employeeCount = Convert.ToInt32(row["EmployeeCount"]);
+                    series.Points.AddXY(departmentName, employeeCount);
+                }
+
+                chart1.ChartAreas[0].AxisX.Title = "Departments";
+                chart1.ChartAreas[0].AxisY.Title = "Number of Employees";
+            }
+        }
+
 
         private void LoadProjectsTasksAndEmployees()
         {
@@ -66,10 +107,9 @@ namespace ERPGameCoder
                          VALUES (@FullName, @Email, @UserPassword, @UserType)";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                // Aquí puedes usar controles de entrada como TextBox para capturar los datos del usuario
                 cmd.Parameters.AddWithValue("@FullName", txtFullname.Text);
                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@UserPassword", txtPassword.Text); // Asegúrate de manejar contraseñas de forma segura
+                cmd.Parameters.AddWithValue("@UserPassword", txtPassword.Text); 
                 cmd.Parameters.AddWithValue("@UserType", cmbRole.SelectedItem?.ToString() ?? "User");
 
                 conn.Open();
